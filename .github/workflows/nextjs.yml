@@ -3,10 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Change this to the branch you want to deploy from (usually 'main' or 'master')
+      - main  
   pull_request:
     branches:
-      - main  # Optionally, you can deploy on pull requests as well
+      - main  
 
 jobs:
   deploy:
@@ -19,7 +19,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18'  # Match this to the version you're using
+          node-version: '21'  
 
       - name: Install dependencies
         run: npm install
@@ -34,5 +34,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out  # This should match the output directory of the export command
-          publish_branch: gh-pages  # The branch where you want to publish your site
+          publish_dir: ./out  
+          publish_branch: gh-pages  
