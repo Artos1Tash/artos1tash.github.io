@@ -81,14 +81,14 @@ export default function Navbar() {
                                     </a>
                                 </NavigationMenuLink>
                             </li>
-                            <ListItem href="" title="Socials">
-                                Re-usable components built using Radix UI and Tailwind CSS.
+                            <ListItem href="https://www.instagram.com/artur_tashbolotov/" title="Instagram">
+                                My Instagram Profile
                             </ListItem>
-                            <ListItem href="" title="Installation">
-                                How to install dependencies and structure your app.
+                            <ListItem href="https://github.com/artos1tash/" title="Github">
+                                My Github Profile
                             </ListItem>
-                            <ListItem href="" title="Typography">
-                                Styles for headings, paragraphs, lists...etc
+                            <ListItem href="https://www.linkedin.com/in/artur-tashbolotov-830874318/" title="Linkedin">
+                                My Linkedin Profile
                             </ListItem>
                         </ul>
                     </NavigationMenuContent>
