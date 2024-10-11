@@ -16,7 +16,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto mt-64 mb-64 grid md:grid-cols-2 gap-8 items-center">
           <div className="relative w-full h-full pb-[100%] md:pb-[75%] rounded-2xl overflow-hidden shadow-lg">
             <Image
-              src="/images/rocks.jpg"
+              src="/nextjs-github-pages/images/rocks.jpg"
               alt="Artur"
               fill
               className="object-cover"
