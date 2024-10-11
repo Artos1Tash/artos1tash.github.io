@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      <div className="relative w-[100%] h-[100vh] mx-auto overflow-hidden bg-[url('/images/city2.jpg')] bg-cover bg-center">
+      <div className="relative w-[100%] h-[100vh] mx-auto overflow-hidden bg-[url('/nextjs-github-pages/images/city2.jpg')] bg-cover bg-center">
         <div className="w-full h-full bg-black/50">
           <div className="text-center p-10 flex justify-center text-xl text-white">
             <Navbar></Navbar>
