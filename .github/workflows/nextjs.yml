@@ -35,10 +35,12 @@ jobs:
         run: npm run build
       - name: List directory contents
         run: ls -R
+      - name: Create .nojekyll file
+        run: touch ./out/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: ./out
 
   deploy:
     environment:
