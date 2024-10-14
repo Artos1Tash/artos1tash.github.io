@@ -1,11 +1,3 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export',
-  images: {
-    unoptimized: true,
-  },
-  basePath: '/artos1tash',
-  assetPrefix: '/artos1tash/',
-};
+const nextConfig = {};
 
 export default nextConfig;
