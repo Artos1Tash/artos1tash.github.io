@@ -10,6 +10,9 @@ export default function Home() {
           <div className="text-center p-10 flex justify-center text-xl text-white">
             <Navbar></Navbar>
           </div>
+          <div className="flex justify-center typewriter ">
+            <h1 className="flex text-white text-4xl text-align-center text-justify font-serif">Artur Tashbolotov</h1>
+          </div>
         </div>
       </div>
       <section className="flex flex-col  bg-gray-200  ease-in duration-200  ">
