@@ -1,155 +1,77 @@
-"use client"
+'use client'
 
-import * as React from "react"
-import Link from "next/link"
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useState } from 'react'
+import { Menu, X } from 'lucide-react'
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { cn } from "@/lib/utils"
-import {
-    NavigationMenu,
-    NavigationMenuContent,
-    NavigationMenuItem,
-    NavigationMenuLink,
-    NavigationMenuList,
-    NavigationMenuTrigger,
-    navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
-
-
-const components: { title: string; href: string; description: string }[] = [
-    {
-        title: "E-commerce store",
-        href: "https://stackblitz-ecommerce-store.vercel.app/",
-        description:
-            "My first project using next.js - example of e-commerce store website",
-    },
-    {
-        title: "Project 2",
-        href: "",
-        description:
-            "Project Description",
-    },
-    {
-        title: "Project 3",
-        href: "",
-        description:
-            "Project Description.",
-    },
-    {
-        title: "Project 4",
-        href: "",
-        description: "Project Description.",
-    },
-    {
-        title: "Project 5",
-        href: "",
-        description:
-            "Project Description",
-    },
-    {
-        title: "Project 6",
-        href: "",
-        description:
-            "Project Description",
-    },
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/photography', label: 'Photography' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/blog', label: 'Blog' },
+  // { href: '/portfolio', label: 'Portfolio' },
 ]
 
 export default function Navbar() {
-    return (
-        <NavigationMenu>
-            <NavigationMenuList>
-                <NavigationMenuItem>
-                    <NavigationMenuTrigger>About </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                            <li className="row-span-3">
-                                <NavigationMenuLink asChild>
-                                    <a
-                                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                                        href="/"
-                                    >
-                                        <Avatar>
-                                            <AvatarImage src="images/rock-climbing-icon.jpg" />
-                                            <AvatarFallback>CN</AvatarFallback>
-                                        </Avatar>
-                                        <div className="mb-2 mt-4 text-lg font-medium">
-                                            Artur Tashbolotov
-                                        </div>
-                                        <p className="text-sm leading-tight text-muted-foreground">
-                                            Passionate rock-climber, CS enthusiast and future entrepreneur
-                                        </p>
-                                    </a>
-                                </NavigationMenuLink>
-                            </li>
-                            <ListItem href="https://www.instagram.com/artur_tashbolotov/" title="Instagram">
-                                My Instagram Profile
-                            </ListItem>
-                            <ListItem href="https://github.com/artos1tash/" title="Github">
-                                My Github Profile
-                            </ListItem>
-                            <ListItem href="https://www.linkedin.com/in/artur-tashbolotov-830874318/" title="Linkedin">
-                                My Linkedin Profile
-                            </ListItem>
-                        </ul>
-                    </NavigationMenuContent>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                    <NavigationMenuTrigger>Projects</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                            {components.map((component) => (
-                                <ListItem
-                                    key={component.title}
-                                    title={component.title}
-                                    href={component.href}
-                                >
-                                    {component.description}
-                                </ListItem>
-                            ))}
-                        </ul>
-                    </NavigationMenuContent>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                    <Link href="/photography" legacyBehavior passHref>
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                            Photography
-                        </NavigationMenuLink>
-                    </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                    <Link href="/portfolio" legacyBehavior passHref>
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                            Portfolio
-                        </NavigationMenuLink>
-                    </Link>
-                </NavigationMenuItem>
-            </NavigationMenuList>
-        </NavigationMenu>
-    )
-}
+  const pathname = usePathname()
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-const ListItem = React.forwardRef<
-    React.ElementRef<"a">,
-    React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-    return (
-        <li>
-            <NavigationMenuLink asChild>
-                <a
-                    ref={ref}
-                    className={cn(
-                        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-                        className
-                    )}
-                    {...props}
+  return (
+    <nav className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-white">
+            Artos
+          </Link>
+          <div className="hidden md:block">
+            <div className="flex items-center space-x-4">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`text-sm font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
+                    pathname === item.href
+                      ? "text-blue-600 dark:text-blue-400"
+                      : "text-gray-600 dark:text-gray-300"
+                  }`}
                 >
-                    <div className="text-sm font-medium leading-none">{title}</div>
-                    <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        {children}
-                    </p>
-                </a>
-            </NavigationMenuLink>
-        </li>
-    )
-})
-ListItem.displayName = "ListItem"
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white focus:outline-none"
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+        </div>
+      </div>
+      {isMenuOpen && (
+        <div className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`block px-3 py-2 rounded-md text-base font-medium ${
+                  pathname === item.href
+                    ? "bg-blue-600 text-white"
+                    : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+    </nav>
+  )
+}
