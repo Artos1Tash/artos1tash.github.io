@@ -28,14 +28,8 @@ export default function Home() {
             See Portfolio
           </Link>
         </div>
-      </div>
-
-      {/* Socials Section */}
-      <div className={styles.socials}>
-        <h2 className="text-4xl font-bold mb-8 text-gray-900 dark:text-white">
-          My Socials
-        </h2>
-        <div className="flex space-x-8">
+        
+        <div className="flex space-x-8 m-6">
           <a
             href="https://github.com/Artos1Tash"
             target="_blank"
@@ -43,7 +37,7 @@ export default function Home() {
             className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
           >
             <FaGithub size={48} />
-            <span className="block mt-2 text-sm">GitHub</span>
+            <span className="block mt-2 text-sm"></span>
           </a>
           <a
             href="https://instagram.com/artur_tashbolotov"
@@ -52,7 +46,7 @@ export default function Home() {
             className="text-gray-700 dark:text-gray-300 hover:text-pink-600 dark:hover:text-pink-400 transition-colors duration-300"
           >
             <FaInstagram size={48} />
-            <span className="block mt-2 text-sm">Instagram</span>
+            <span className="block mt-2 text-sm"></span>
           </a>
           <a
             href="https://leetcode.com/_Artos_"
@@ -61,10 +55,11 @@ export default function Home() {
             className="text-gray-700 dark:text-gray-300 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors duration-300"
           >
             <SiLeetcode size={48} />
-            <span className="block mt-2 text-sm">LeetCode</span>
+            <span className="block mt-2 text-sm"></span>
           </a>
         </div>
       </div>
+
     </div>
   );
 }
