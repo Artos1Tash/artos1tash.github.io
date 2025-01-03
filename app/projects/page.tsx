@@ -19,6 +19,11 @@ const projects = [
       tags: ['Go', 'Ebitengine'],
       link: "https://github.com/Artos1Tash/ebitgame"
     },
+    {
+      title: 'Youtube Downloader',
+      description: 'Youtube video downloader (ffmpeg required)',
+      tags: ['Python', 'Django', 'Youtube-dl'],
+    },
   ]
   
   export default function Projects() {
