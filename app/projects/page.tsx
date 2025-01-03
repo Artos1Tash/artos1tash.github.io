@@ -23,6 +23,7 @@ const projects = [
       title: 'Youtube Downloader',
       description: 'Youtube video downloader (ffmpeg required)',
       tags: ['Python', 'Django', 'Youtube-dl'],
+      link: "https://github.com/N1ghtH0wk/web-video"
     },
   ]
   
